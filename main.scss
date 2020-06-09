@@ -53,11 +53,16 @@ $border-hover: #4CA3D2;
             }
         }
 
+        .not-found {
+            margin-top: -30px;
+            display: none;
+            text-align: center;
+        }
 
     }
 
     .card-container {
-       
+
         background-color: $primary-02;
         border: 5px solid $border;
         display: none;

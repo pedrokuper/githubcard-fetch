@@ -36,6 +36,11 @@
   transition: 200ms;
   color: white;
 }
+.container .search-wrapper .not-found {
+  margin-top: -30px;
+  display: none;
+  text-align: center;
+}
 .container .card-container {
   background-color: #0C87C9;
   border: 5px solid #096596;

@@ -10,7 +10,7 @@ let repoElement = document.querySelector(".js-repos");
 let followersElement = document.querySelector(".js-followers");
 let inputElement = document.querySelector(".js-input");
 let btnElement = document.querySelector(".js-btn-search");
-
+const notFoundElement = document.querySelector(".js-not-found");
 let cardElement = document.querySelector(".js-card-container")
 //FUNCTIONS
 
@@ -25,21 +25,31 @@ async function getData() {
     console.log(githubData)
 
     cardData();
-    showcard();
 
-    //LLena la tarjeta con datos
+
+    //Fill the Card with the fetched data
     function cardData() {
-        
-        usernameElement.innerHTML = githubData.login;
-        nameElement.innerHTML = githubData.name;
-        avatarElement.src = githubData.avatar_url;
-        avatarLinkElement.href = `https://github.com/${githubUser}`
-        avatarLinkElement.target = "_blank"
-        usernameLinkElement.href = `https://github.com/${githubUser}`
-        usernameLinkElement.target = "_blank"
-        repoElement.innerHTML = githubData.public_repos;
-        followersElement.innerHTML = githubData.followers;
-        locationElement.innerHTML = githubData.location;
+
+        if (inputElement.value.length == 0 || githubData.message == "Not Found") {
+            notFoundElement.style.display = "block";
+            inputElement.value = "";
+            cardElement.style.display = "none";
+
+        } else {
+            notFoundElement.style.display = "none"
+            showcard();
+            usernameElement.innerHTML = githubData.login;
+            nameElement.innerHTML = githubData.name;
+            avatarElement.src = githubData.avatar_url;
+            avatarLinkElement.href = `https://github.com/${githubUser}`
+            avatarLinkElement.target = "_blank"
+            usernameLinkElement.href = `https://github.com/${githubUser}`
+            usernameLinkElement.target = "_blank"
+            repoElement.innerHTML = githubData.public_repos;
+            followersElement.innerHTML = githubData.followers;
+            locationElement.innerHTML = githubData.location;
+        }
+
     }
 }
 

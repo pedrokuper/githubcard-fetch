@@ -2,34 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Users</title>
-    <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Users</title>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="search-wrapper">
-            <input class="input-username js-input" type="text" placeholder="type username...">
-            <button class="btn-search js-btn-search" type="submit">Buscar ususario</button>
-        </div>
-        <div class="card-container">
-            <a href="" class="user-link"><img src="" alt="" class="user-avatar js-avatar"></a>
-            <a href="" class="user-link"><h2 class="card-username js-username"></h2>
-            </a>
-            <div class="card-info">
-                <h3 class="card-realname title">Real name</h3>
-                <p class="js-name"></p>
-                <h3 class="card-location title">Location</h3>
-                <p class="js-location"></p>
-                <h3 class="card-public-repos title">Number of public repos</h3>
-                <p class="js-repos"></p>
-                <h3 class="card-followers title">Number of followers</h3>
-                <p class="js-followers"></p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="search-wrapper">
+      <input class="input-username js-input" type="text" placeholder="type username..." />
+      <button class="btn-search js-btn-search" type="submit">
+        Buscar ususario
+      </button>
     </div>
+    <div class="card-container">
+      <a href="" id="img-link" class="js-user-link"><img src="" alt="" class="user-avatar js-avatar" /></a>
+      <a href="" class="js-user-link">
+        <h2 class="card-username js-username "></h2>
+      </a>
+      <div class="card-info">
+        <h3 class="card-realname title">Real name</h3>
+        <p class="js-name"></p>
+        <h3 class="card-location title">Location</h3>
+        <p class="js-location"></p>
+        <h3 class="card-public-repos title">Number of public repos</h3>
+        <p class="js-repos"></p>
+        <h3 class="card-followers title">Number of followers</h3>
+        <p class="js-followers"></p>
+      </div>
+    </div>
+  </div>
+  <script src="/index.js"></script>
 </body>
 
 </html>

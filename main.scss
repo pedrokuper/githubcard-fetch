@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//Paleta
+$text: #fff;
+$primary: #04324A;
+$secondary: #0C87C9;
+$secondary-hover: #096596;
+$primary-02: #0C87C9;
+$border: #096596;
+$border-hover: #4CA3D2;
+
+.container {
+
+    font-family: 'Lato', sans-serif;
+    background-color: $primary;
+    color: $text;
+    height: 100vh;
+
+    .search-wrapper {
+
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin: auto;
+        border: none;
+        margin-bottom: 25px;
+
+
+        .input-username {
+            margin-top: 30px;
+            padding: 10px 10px;
+            border-radius: 3px;
+        }
+
+        .btn-search {
+            margin-top: 10px;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $secondary-hover;
+                transition: 200ms;
+                color: white;
+            }
+        }
+
+
+    }
+
+    .card-container {
+        background-color: $primary-02;
+        border: 5px solid $border;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        max-width: 300px;
+        margin: 0 auto;
+
+        .user-link {
+            text-decoration: none;
+            color: $text;
+        }
+
+        .user-avatar {
+
+            margin: 10px;
+            width: 125px;
+            border-radius: 50%;
+            border: 4px solid #1C6C8C;
+
+            &:hover {
+                border: 4px solid $border-hover;
+            }
+        }
+
+        .card-info {
+
+            margin: 5px;
+            line-height: 1.8rem;
+        }
+    }
+}

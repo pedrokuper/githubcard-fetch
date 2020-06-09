@@ -27,10 +27,9 @@ async function getData() {
     cardData();
     showcard();
 
-
+    //LLena la tarjeta con datos
     function cardData() {
-
-
+        
         usernameElement.innerHTML = githubData.login;
         nameElement.innerHTML = githubData.name;
         avatarElement.src = githubData.avatar_url;
@@ -42,15 +41,26 @@ async function getData() {
         followersElement.innerHTML = githubData.followers;
         locationElement.innerHTML = githubData.location;
     }
+}
 
-    function showcard() {
-        inputElement.value = "";
-        cardElement.style.display = "flex";
+//Clean the input and shows info-card
+function showcard() {
+    inputElement.value = "";
+    cardElement.style.display = "flex";
 
+}
+//Add Enter key for fetching data
+function runGetData() {
+    if (event.keyCode == 13) {
+        getData();
     }
-
-
 }
 
 
-btnElement.addEventListener("click", getData)
+//Events//
+
+//To fetch the info when "Buscar usuario" is clicked
+btnElement.addEventListener("click", getData);
+
+//To fetch the info when "Enter" key is pushed
+inputElement.addEventListener("keydown", runGetData);

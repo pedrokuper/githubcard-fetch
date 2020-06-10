@@ -19,37 +19,45 @@ let cardElement = document.querySelector(".js-card-container")
 
 async function getData() {
 
-    let githubUser = inputElement.value;
-    let response = await fetch(`https://api.github.com/users/${githubUser}`);
-    const githubData = await response.json();
-    console.log(githubData)
+    try {
 
-    cardData();
+        let githubUser = inputElement.value;
+        let response = await fetch(`https://api.github.com/users/${githubUser}`);
+        const githubData = await response.json();
+        console.log(githubData)
+
+        cardData();
 
 
-    //Fill the Card with the fetched data
-    function cardData() {
+        //Fill the Card with the fetched data
+        function cardData() {
 
-        if (inputElement.value.length == 0 || githubData.message == "Not Found") {
-            notFoundElement.style.display = "block";
-            inputElement.value = "";
-            cardElement.style.display = "none";
+            if (inputElement.value.length == 0 || githubData.message == "Not Found") {
+                notFoundElement.style.display = "block";
+                inputElement.value = "";
+                cardElement.style.display = "none";
 
-        } else {
-            notFoundElement.style.display = "none"
-            showcard();
-            usernameElement.innerHTML = githubData.login;
-            nameElement.innerHTML = githubData.name;
-            avatarElement.src = githubData.avatar_url;
-            avatarLinkElement.href = `https://github.com/${githubUser}`
-            avatarLinkElement.target = "_blank"
-            usernameLinkElement.href = `https://github.com/${githubUser}`
-            usernameLinkElement.target = "_blank"
-            repoElement.innerHTML = githubData.public_repos;
-            followersElement.innerHTML = githubData.followers;
-            locationElement.innerHTML = githubData.location;
+            } else {
+                notFoundElement.style.display = "none"
+                showcard();
+                usernameElement.innerHTML = githubData.login;
+                nameElement.innerHTML = githubData.name;
+                avatarElement.src = githubData.avatar_url;
+                avatarLinkElement.href = `https://github.com/${githubUser}`
+                avatarLinkElement.target = "_blank"
+                usernameLinkElement.href = `https://github.com/${githubUser}`
+                usernameLinkElement.target = "_blank"
+                repoElement.innerHTML = githubData.public_repos;
+                followersElement.innerHTML = githubData.followers;
+                locationElement.innerHTML = githubData.location;
+            }
+
         }
 
+    } catch {
+        inputElement.value = ""
+        notFoundElement.style.display = "block"
+        notFoundElement.innerHTML = "No se pueden cargar los datos"
     }
 }
 
